@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Music Player</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1e1e2f, #3a3a5f);
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        .player {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 15px;
+            width: 300px;
+            margin: auto;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .song {
+            margin: 10px 0;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+        }
+
+        .song:hover {
+            background: rgba(255,255,255,0.2);
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>🎵 My Music Player</h1>
+
+<div class="player">
+    <h3 id="songTitle">Sample Song 1</h3>
+
+    <audio id="audioPlayer" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+
+    <button onclick="playPause()">Play / Pause</button>
+
+    <div class="song" onclick="changeSong(1)">Sample Song 1</div>
+    <div class="song" onclick="changeSong(2)">Sample Song 2</div>
+</div>
+
+<script>
+    const audio = document.getElementById("audioPlayer");
+    const title = document.getElementById("songTitle");
+
+    function playPause() {
+        if (audio.paused) {
+            audio.play();
+        } else {
+            audio.pause();
+        }
+    }
+
+    function changeSong(number) {
+        if (number === 1) {
+            audio.src = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
+            title.innerText = "Sample Song 1";
+        } else {
+            audio.src = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3";
+            title.innerText = "Sample Song 2";
+        }
+        audio.play();
+    }
+</script>
+
+</body>
+</html>
